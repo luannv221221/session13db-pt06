@@ -118,4 +118,32 @@ CREATE TABLE product(
     category_id int  NOT NULL,
     foreign key (category_id) references category(id) -- taoj khoa ngoai 
 );
-INSERT INTO product(name,price,category_id) Value('Khoac',-100,1);
+INSERT INTO product(name,price,category_id) Value('Khoac2',200,2); 
+INSERT INTO product(name,price,category_id) Value('Gio2',150,2); 
+
+SELECT * FROM product;
+-- DML
+-- INSERT 
+-- UPDATE  
+-- cập nhật tên của bản ghi có id = 1 thành áo xịn 
+UPDATE product SET name = "Áo xịn" WHERE id = 1; 
+
+
+UPDATE product SET price = 100 WHERE price < 200;
+
+UPDATE product SET price = 150 WHERE id = 3;
+-- cập nhật giá tiền của sản phẩm có giá nhỏ 200 về 10% so voi gia hiện tại 
+UPDATE product SET price = price - (price*0.1) WHERE price <200;
+-- cập nhật tên của sản phẩm thánh khoác và price thành 210 với sản phẩm có id = 2 
+UPDATE product SET name = "Khoác", price = 210 WHERE id = 2;
+
+-- DELETE 
+DELETE FROM product WHERE id = 3;
+-- xóa tất cả sản phẩm có danh mục = 2
+DELETE FROM product WHERE category_id = 2;
+SELECT * FROM product;
+-- SELECT 
+-- lấy tất cả bản ghi theo tất cả trường của bảng 
+SELECT * FROM product;
+-- lấy tất cả bản ghi theo trường lựa chọn 
+SELECT name,price FROM product;
